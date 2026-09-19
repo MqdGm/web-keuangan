@@ -157,3 +157,5 @@ Aplikasi telah dilengkapi dengan berkas `manifest.webmanifest`, metadata mobile,
 
 ## 📄 Lisensi
 Hak Cipta © 2026. Dikembangkan untuk pengelolaan finansial harian yang rapi dan terukur.
+#   w e b - k e u a n g a n  
+ 
