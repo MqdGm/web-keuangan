@@ -47,8 +47,10 @@ interface FinanceContextType {
   recurringTransactions: RecurringTransaction[];
   notifications: NotificationItem[];
   settings: UserSettings;
-  isDemoMode: boolean;
   isLoading: boolean;
+  isSaving: boolean;
+  currentUser: { id: string; email: string; full_name: string; currency?: string } | null;
+  logout: () => Promise<void>;
   datePreset: DateRangePreset;
   customDateRange: { start: string; end: string };
 
@@ -156,55 +158,116 @@ export function FinanceProvider({ children }: { children: React.ReactNode }) {
     end: format(endOfMonth(new Date()), 'yyyy-MM-dd'),
   });
 
-  // Load from localStorage on client mount
+  const [currentUser, setCurrentUser] = useState<{ id: string; email: string; full_name: string; currency?: string } | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
+
+  // Load from API database on mount
   useEffect(() => {
-    try {
-      localStorage.removeItem('keuangan_finance_state_v1');
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        if (parsed.profile) setProfile(parsed.profile);
-        if (parsed.accounts) setAccounts(parsed.accounts);
-        if (parsed.categories) setCategories(parsed.categories);
-        if (parsed.transactions) setTransactions(parsed.transactions);
-        if (parsed.budgets) setBudgets(parsed.budgets);
-        if (parsed.budgetCategories) setBudgetCategories(parsed.budgetCategories);
-        if (parsed.savingsGoals) setSavingsGoals(parsed.savingsGoals);
-        if (parsed.debts) setDebts(parsed.debts);
-        if (parsed.recurringTransactions) setRecurringTransactions(parsed.recurringTransactions);
-        if (parsed.notifications) setNotifications(parsed.notifications);
-        if (parsed.settings) setSettings(parsed.settings);
+    let isMounted = true;
+
+    async function loadData() {
+      try {
+        // 1. Dapatkan info user aktif
+        const meRes = await fetch('/api/auth/me');
+        if (!meRes.ok) {
+          if (isMounted) setIsLoaded(true);
+          return;
+        }
+        const meData = await meRes.json();
+        if (isMounted) {
+          setCurrentUser(meData.user);
+        }
+
+        // 2. Ambil data finansial user dari database server
+        const finRes = await fetch('/api/finance/data');
+        if (finRes.ok) {
+          const resJson = await finRes.json();
+          const d = resJson.data;
+          if (d && isMounted) {
+            if (d.profile) setProfile(d.profile);
+            if (d.accounts) setAccounts(d.accounts);
+            if (d.categories) setCategories(d.categories);
+            if (d.transactions) setTransactions(d.transactions);
+            if (d.budgets) setBudgets(d.budgets);
+            if (d.budgetCategories) setBudgetCategories(d.budgetCategories);
+            if (d.savingsGoals) setSavingsGoals(d.savingsGoals);
+            if (d.debts) setDebts(d.debts);
+            if (d.recurringTransactions) setRecurringTransactions(d.recurringTransactions);
+            if (d.notifications) setNotifications(d.notifications);
+            if (d.settings) setSettings(d.settings);
+          }
+        }
+      } catch (err) {
+        console.warn('[FinanceStore] Gagal mengambil data dari server, fallback ke storage lokal:', err);
+        try {
+          const stored = localStorage.getItem(STORAGE_KEY);
+          if (stored) {
+            const parsed = JSON.parse(stored);
+            if (parsed.profile) setProfile(parsed.profile);
+            if (parsed.accounts) setAccounts(parsed.accounts);
+            if (parsed.categories) setCategories(parsed.categories);
+            if (parsed.transactions) setTransactions(parsed.transactions);
+            if (parsed.budgets) setBudgets(parsed.budgets);
+            if (parsed.budgetCategories) setBudgetCategories(parsed.budgetCategories);
+            if (parsed.savingsGoals) setSavingsGoals(parsed.savingsGoals);
+            if (parsed.debts) setDebts(parsed.debts);
+            if (parsed.recurringTransactions) setRecurringTransactions(parsed.recurringTransactions);
+            if (parsed.notifications) setNotifications(parsed.notifications);
+            if (parsed.settings) setSettings(parsed.settings);
+          }
+        } catch {}
+      } finally {
+        if (isMounted) setIsLoaded(true);
       }
-    } catch (e) {
-      console.warn('Failed to load local finance storage', e);
-    } finally {
-      setIsLoaded(true);
     }
+
+    loadData();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
-  // Sync to localStorage on changes
+  // Sync perubahan data ke database server & localStorage backup (debounced)
   useEffect(() => {
-    if (!isLoaded) return;
+    if (!isLoaded || !currentUser) return;
+
+    const payload = {
+      profile,
+      accounts,
+      categories,
+      transactions,
+      budgets,
+      budgetCategories,
+      savingsGoals,
+      debts,
+      recurringTransactions,
+      notifications,
+      settings,
+    };
+
     try {
-      const stateToPersist = {
-        profile,
-        accounts,
-        categories,
-        transactions,
-        budgets,
-        budgetCategories,
-        savingsGoals,
-        debts,
-        recurringTransactions,
-        notifications,
-        settings,
-      };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToPersist));
-    } catch (e) {
-      console.warn('Failed to persist finance state', e);
-    }
+      localStorage.setItem(`${STORAGE_KEY}_${currentUser.id}`, JSON.stringify(payload));
+    } catch {}
+
+    const timer = setTimeout(async () => {
+      try {
+        setIsSaving(true);
+        await fetch('/api/finance/data', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+      } catch (err) {
+        console.warn('[FinanceStore] Gagal menyimpan ke server database:', err);
+      } finally {
+        setIsSaving(false);
+      }
+    }, 600);
+
+    return () => clearTimeout(timer);
   }, [
     isLoaded,
+    currentUser,
     profile,
     accounts,
     categories,
@@ -217,6 +280,14 @@ export function FinanceProvider({ children }: { children: React.ReactNode }) {
     notifications,
     settings,
   ]);
+
+  const logout = async () => {
+    try {
+      await fetch('/api/auth/logout', { method: 'POST' });
+    } catch {}
+    setCurrentUser(null);
+    window.location.href = '/login';
+  };
 
   // Helper for date interval calculation
   const getDateInterval = useCallback((): { start: Date; end: Date } => {
@@ -909,7 +980,9 @@ export function FinanceProvider({ children }: { children: React.ReactNode }) {
     recurringTransactions,
     notifications,
     settings,
-    isDemoMode: true,
+    currentUser,
+    logout,
+    isSaving,
     isLoading: !isLoaded,
     datePreset,
     customDateRange,

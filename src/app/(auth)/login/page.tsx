@@ -7,8 +7,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/components/ui/toast';
-import { createClient, isSupabaseConfigured } from '@/lib/supabase/client';
-import { Sparkles, ArrowRight, Lock, Mail, Play } from 'lucide-react';
+import { Sparkles, Lock, Mail, ArrowRight } from 'lucide-react';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -28,36 +27,29 @@ export default function LoginPage() {
     setIsLoading(true);
 
     try {
-      const supabase = createClient();
-      if (!supabase) {
-        // Fallback for demo mode
-        success('Selamat Datang!', 'Masuk ke Dashboard Mode Lokal/Demo.');
-        router.push('/');
-        return;
-      }
-
-      const { data, error: authError } = await supabase.auth.signInWithPassword({
-        email,
-        password,
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
       });
 
-      if (authError) {
-        error('Gagal Masuk', authError.message);
+      const data = await res.json();
+      if (!res.ok) {
+        error('Gagal Masuk', data.error || 'Email atau kata sandi tidak valid.');
         return;
       }
 
-      success('Masuk Berhasil', `Selamat datang kembali, ${data.user?.email}!`);
-      router.push('/');
+      success('Masuk Berhasil', `Selamat datang kembali, ${data.user?.full_name || data.user?.email}!`);
+      
+      const searchParams = new URLSearchParams(window.location.search);
+      const target = searchParams.get('redirect') || '/';
+      router.push(target);
+      router.refresh();
     } catch (err: any) {
-      error('Kesalahan Sistem', err.message);
+      error('Kesalahan Sistem', err.message || 'Gagal menghubungi server.');
     } finally {
       setIsLoading(false);
     }
-  };
-
-  const handleDemoLogin = () => {
-    success('Mode Demo Diaktifkan', 'Menjelajahi aplikasi dengan akun demo finansial Indonesia.');
-    router.push('/');
   };
 
   return (
@@ -81,29 +73,11 @@ export default function LoginPage() {
           <CardHeader>
             <CardTitle className="text-lg font-bold">Masuk ke Akun Anda</CardTitle>
             <CardDescription className="text-xs">
-              Kelola seluruh transaksi, anggaran, dan tabungan Anda
+              Masuk untuk mengelola seluruh transaksi, rekening, dan anggaran Anda
             </CardDescription>
           </CardHeader>
 
           <CardContent className="space-y-4">
-            {/* Quick Demo Access button */}
-            <Button
-              type="button"
-              variant="outline"
-              onClick={handleDemoLogin}
-              className="w-full h-11 border-emerald-500/40 text-emerald-700 dark:text-emerald-300 bg-emerald-50/50 dark:bg-emerald-950/20 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 text-xs font-bold gap-2"
-            >
-              <Play className="w-4 h-4 fill-current" />
-              <span>Coba Demo Mode (1-Klik Langsung Masuk)</span>
-            </Button>
-
-            <div className="relative flex items-center justify-center">
-              <div className="border-t border-slate-200 dark:border-slate-800 w-full" />
-              <span className="bg-white dark:bg-slate-900 px-3 text-[11px] uppercase font-semibold text-slate-400 shrink-0">
-                Atau Masuk dengan Email
-              </span>
-            </div>
-
             <form onSubmit={handleLogin} className="space-y-4">
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-slate-500 uppercase">Email</label>
@@ -111,6 +85,7 @@ export default function LoginPage() {
                   <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                   <Input
                     type="email"
+                    required
                     placeholder="nama@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -133,6 +108,7 @@ export default function LoginPage() {
                   <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                   <Input
                     type="password"
+                    required
                     placeholder="••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -144,17 +120,18 @@ export default function LoginPage() {
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full h-11 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 text-white"
+                className="w-full h-11 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 text-white cursor-pointer mt-2"
               >
-                {isLoading ? 'Memverifikasi...' : 'Masuk Sekarang'}
+                {isLoading ? 'Memproses...' : 'Masuk Sekarang'}
               </Button>
             </form>
           </CardContent>
 
           <CardFooter className="pt-0 justify-center text-xs text-slate-500">
             <span>Belum memiliki akun?</span>
-            <Link href="/register" className="ml-1 font-semibold text-emerald-600 hover:underline">
-              Daftar akun baru
+            <Link href="/register" className="ml-1 font-semibold text-emerald-600 hover:underline inline-flex items-center gap-1">
+              <span>Daftar akun baru</span>
+              <ArrowRight className="w-3 h-3" />
             </Link>
           </CardFooter>
         </Card>

@@ -1,0 +1,1260 @@
+{
+  "version": 1,
+  "users": [
+    {
+      "id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+      "email": "miqdad.test@keuangan.id",
+      "password_hash": "9dbed893caff95416821c923ff9772ab082c3b261e1cbe9c03634321bc6427a49293fc758e7a1770d6518f85fa2ab70de0a2de82e941cd91047cdaab256a2a0e",
+      "salt": "2ec1d3aa1eeacb32829a18942c75b74e",
+      "full_name": "Ahmad Miqdad",
+      "currency": "IDR",
+      "created_at": "2026-09-19T06:56:14.777Z",
+      "updated_at": "2026-09-19T06:56:14.777Z"
+    },
+    {
+      "id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+      "email": "demo@keuangan.id",
+      "password_hash": "b3e48da0bd592e64f5a98b9985b3cba8d089c0907951d347bc6a921074ffe8d180dc73b7055bde4715e542ff9e5238deaac469629214c3d9630a79a9f3ed5f87",
+      "salt": "62e23695ffe1180f78d79ff4f02ad568",
+      "full_name": "Pengguna Demo",
+      "currency": "IDR",
+      "created_at": "2026-09-19T06:56:59.709Z",
+      "updated_at": "2026-09-19T06:56:59.709Z"
+    },
+    {
+      "id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+      "email": "miqdadgama5@gmail.com",
+      "password_hash": "e1dcb42c2f0bd553da1e1fcf4a92f8e9f584900e76ae3647b3ff87992467c9a945234d17997c16a07f00f87c176762908d96f15e357836abe7031d9598fa000d",
+      "salt": "133d8f96c77b77f58ea1b46e75953578",
+      "full_name": "Miqdad Gama Alfikri",
+      "currency": "IDR",
+      "created_at": "2026-09-19T07:00:20.054Z",
+      "updated_at": "2026-09-19T07:00:20.054Z"
+    },
+    {
+      "id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+      "email": "miqqdq@gmail.com",
+      "password_hash": "75120a98467bd592d749473dce51a363e28da38eb5ba230b1b3641133c24a88797153ada19bcffb7932dc187666d25b7f3f0b8bf87b1accc62dfd354d62824b9",
+      "salt": "7763469024e49dc8d14efe400a24abb3",
+      "full_name": "zcxzxc",
+      "currency": "IDR",
+      "created_at": "2026-09-19T07:05:34.494Z",
+      "updated_at": "2026-09-19T07:05:34.494Z"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "e003bfb6-325b-4a36-936b-bfd24468ac0b",
+      "token": "202eead710dd440c88b9cf9b5df7dbab7736c0eed1310285fd0f64ae67cac191",
+      "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+      "created_at": "2026-09-19T06:56:16.179Z",
+      "expires_at": "2026-10-19T06:56:16.179Z"
+    },
+    {
+      "id": "1e76e5b4-4e80-4e6b-ba3d-5453f70dac11",
+      "token": "d7f4982dac25eba8f46fe4ad1ec06355a945899ce5ae9ede7db433eb7bd9ec71",
+      "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+      "created_at": "2026-09-19T07:36:02.741Z",
+      "expires_at": "2026-10-19T07:36:02.741Z"
+    },
+    {
+      "id": "8de39091-1899-4568-86b1-455711e8b5c8",
+      "token": "0372216d743d8daae7f51e704d44f25a809afc8c65d5f296d29243432cf35839",
+      "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+      "created_at": "2026-09-19T07:37:10.790Z",
+      "expires_at": "2026-10-19T07:37:10.790Z"
+    }
+  ],
+  "finance_data": {
+    "0e331691-f9d9-4662-bc93-284daba9f23c": {
+      "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+      "profile": {
+        "id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+        "email": "miqdad.test@keuangan.id",
+        "full_name": "Ahmad Miqdad",
+        "avatar_url": "",
+        "currency": "IDR",
+        "locale": "id-ID",
+        "theme": "system",
+        "created_at": "2026-09-19T06:56:14.791Z",
+        "updated_at": "2026-09-19T06:56:14.791Z"
+      },
+      "accounts": [
+        {
+          "id": "acc-0e331691-1",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "BCA Utama",
+          "type": "bank",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#00529C",
+          "icon": "Building2",
+          "institution": "Bank Central Asia",
+          "is_active": true,
+          "created_at": "2026-09-19T06:56:14.791Z",
+          "updated_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "acc-0e331691-2",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Mandiri Tabungan",
+          "type": "bank",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#0F4C81",
+          "icon": "Building",
+          "institution": "Bank Mandiri",
+          "is_active": true,
+          "created_at": "2026-09-19T06:56:14.791Z",
+          "updated_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "acc-0e331691-3",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "GoPay",
+          "type": "ewallet",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#00AED6",
+          "icon": "Smartphone",
+          "institution": "GoTo",
+          "is_active": true,
+          "created_at": "2026-09-19T06:56:14.791Z",
+          "updated_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "acc-0e331691-4",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "DANA",
+          "type": "ewallet",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#118EEA",
+          "icon": "Smartphone",
+          "institution": "DANA Indonesia",
+          "is_active": true,
+          "created_at": "2026-09-19T06:56:14.791Z",
+          "updated_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "acc-0e331691-5",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Dompet Tunai",
+          "type": "cash",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#10B981",
+          "icon": "Wallet",
+          "institution": "Cash",
+          "is_active": true,
+          "created_at": "2026-09-19T06:56:14.791Z",
+          "updated_at": "2026-09-19T06:56:14.791Z"
+        }
+      ],
+      "categories": [
+        {
+          "id": "cat-0e331691-1",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Makanan & Minuman",
+          "type": "expense",
+          "color": "#EF4444",
+          "icon": "Utensils",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "cat-0e331691-2",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Transportasi",
+          "type": "expense",
+          "color": "#F97316",
+          "icon": "Car",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "cat-0e331691-3",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Belanja",
+          "type": "expense",
+          "color": "#EC4899",
+          "icon": "ShoppingBag",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "cat-0e331691-4",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Tagihan & Utilitas",
+          "type": "expense",
+          "color": "#F59E0B",
+          "icon": "Receipt",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "cat-0e331691-5",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Hiburan",
+          "type": "expense",
+          "color": "#8B5CF6",
+          "icon": "Film",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "cat-0e331691-6",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Kesehatan",
+          "type": "expense",
+          "color": "#10B981",
+          "icon": "HeartPulse",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "cat-0e331691-7",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Pendidikan",
+          "type": "expense",
+          "color": "#06B6D4",
+          "icon": "GraduationCap",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "cat-0e331691-8",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Keluarga",
+          "type": "expense",
+          "color": "#3B82F6",
+          "icon": "Users",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "cat-0e331691-9",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Langganan",
+          "type": "expense",
+          "color": "#6366F1",
+          "icon": "Sparkles",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "cat-0e331691-10",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Lainnya",
+          "type": "expense",
+          "color": "#6B7280",
+          "icon": "CircleEllipsis",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "cat-0e331691-11",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Gaji Bulanan",
+          "type": "income",
+          "color": "#10B981",
+          "icon": "Banknote",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "cat-0e331691-12",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Freelance & Side Project",
+          "type": "income",
+          "color": "#3B82F6",
+          "icon": "Laptop",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "cat-0e331691-13",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Bisnis & Usaha",
+          "type": "income",
+          "color": "#8B5CF6",
+          "icon": "Store",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "cat-0e331691-14",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Investasi & Dividen",
+          "type": "income",
+          "color": "#F59E0B",
+          "icon": "TrendingUp",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "cat-0e331691-15",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Bonus & Hadiah",
+          "type": "income",
+          "color": "#EC4899",
+          "icon": "Gift",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        },
+        {
+          "id": "cat-0e331691-16",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "name": "Pemasukan Lain",
+          "type": "income",
+          "color": "#6B7280",
+          "icon": "PlusCircle",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        }
+      ],
+      "transactions": [
+        {
+          "id": "tx-test-1",
+          "account_id": "acc-0e331691-1",
+          "type": "expense",
+          "amount": 50000,
+          "description": "Beli Kopi Specialty",
+          "date": "2026-09-19T06:56:15.443Z",
+          "created_at": "2026-09-19T06:56:15.444Z"
+        }
+      ],
+      "budgets": [
+        {
+          "id": "bgt-0e331691-1",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "month": "2026-09-01",
+          "total_limit": 0,
+          "notes": "Pagu anggaran bulanan",
+          "created_at": "2026-09-19T06:56:14.685Z",
+          "updated_at": "2026-09-19T06:56:14.685Z"
+        }
+      ],
+      "budgetCategories": [],
+      "savingsGoals": [],
+      "debts": [],
+      "recurringTransactions": [],
+      "notifications": [
+        {
+          "id": "notif-0e331691-1",
+          "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+          "title": "Selamat Datang di Keuangan!",
+          "message": "Halo Ahmad Miqdad, akun Anda telah berhasil didaftarkan dan siap digunakan. Catat transaksi pertama Anda sekarang.",
+          "type": "system",
+          "is_read": false,
+          "created_at": "2026-09-19T06:56:14.791Z"
+        }
+      ],
+      "settings": {
+        "user_id": "0e331691-f9d9-4662-bc93-284daba9f23c",
+        "google_connected": false,
+        "google_sheet_id": "",
+        "google_sheet_url": "",
+        "auto_backup_enabled": false,
+        "notify_budget_warning": true,
+        "notify_recurring_due": true,
+        "updated_at": "2026-09-19T06:56:14.685Z"
+      },
+      "updated_at": "2026-09-19T06:56:15.492Z"
+    },
+    "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2": {
+      "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+      "profile": {
+        "id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+        "email": "demo@keuangan.id",
+        "full_name": "Pengguna Demo",
+        "avatar_url": "",
+        "currency": "IDR",
+        "locale": "id-ID",
+        "theme": "system",
+        "created_at": "2026-09-19T06:56:59.716Z",
+        "updated_at": "2026-09-19T06:56:59.716Z"
+      },
+      "accounts": [
+        {
+          "id": "acc-afe29c84-1",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "BCA Utama",
+          "type": "bank",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#00529C",
+          "icon": "Building2",
+          "institution": "Bank Central Asia",
+          "is_active": true,
+          "created_at": "2026-09-19T06:56:59.716Z",
+          "updated_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "acc-afe29c84-2",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Mandiri Tabungan",
+          "type": "bank",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#0F4C81",
+          "icon": "Building",
+          "institution": "Bank Mandiri",
+          "is_active": true,
+          "created_at": "2026-09-19T06:56:59.716Z",
+          "updated_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "acc-afe29c84-3",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "GoPay",
+          "type": "ewallet",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#00AED6",
+          "icon": "Smartphone",
+          "institution": "GoTo",
+          "is_active": true,
+          "created_at": "2026-09-19T06:56:59.716Z",
+          "updated_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "acc-afe29c84-4",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "DANA",
+          "type": "ewallet",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#118EEA",
+          "icon": "Smartphone",
+          "institution": "DANA Indonesia",
+          "is_active": true,
+          "created_at": "2026-09-19T06:56:59.716Z",
+          "updated_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "acc-afe29c84-5",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Dompet Tunai",
+          "type": "cash",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#10B981",
+          "icon": "Wallet",
+          "institution": "Cash",
+          "is_active": true,
+          "created_at": "2026-09-19T06:56:59.716Z",
+          "updated_at": "2026-09-19T06:56:59.716Z"
+        }
+      ],
+      "categories": [
+        {
+          "id": "cat-afe29c84-1",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Makanan & Minuman",
+          "type": "expense",
+          "color": "#EF4444",
+          "icon": "Utensils",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "cat-afe29c84-2",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Transportasi",
+          "type": "expense",
+          "color": "#F97316",
+          "icon": "Car",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "cat-afe29c84-3",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Belanja",
+          "type": "expense",
+          "color": "#EC4899",
+          "icon": "ShoppingBag",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "cat-afe29c84-4",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Tagihan & Utilitas",
+          "type": "expense",
+          "color": "#F59E0B",
+          "icon": "Receipt",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "cat-afe29c84-5",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Hiburan",
+          "type": "expense",
+          "color": "#8B5CF6",
+          "icon": "Film",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "cat-afe29c84-6",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Kesehatan",
+          "type": "expense",
+          "color": "#10B981",
+          "icon": "HeartPulse",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "cat-afe29c84-7",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Pendidikan",
+          "type": "expense",
+          "color": "#06B6D4",
+          "icon": "GraduationCap",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "cat-afe29c84-8",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Keluarga",
+          "type": "expense",
+          "color": "#3B82F6",
+          "icon": "Users",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "cat-afe29c84-9",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Langganan",
+          "type": "expense",
+          "color": "#6366F1",
+          "icon": "Sparkles",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "cat-afe29c84-10",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Lainnya",
+          "type": "expense",
+          "color": "#6B7280",
+          "icon": "CircleEllipsis",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "cat-afe29c84-11",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Gaji Bulanan",
+          "type": "income",
+          "color": "#10B981",
+          "icon": "Banknote",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "cat-afe29c84-12",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Freelance & Side Project",
+          "type": "income",
+          "color": "#3B82F6",
+          "icon": "Laptop",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "cat-afe29c84-13",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Bisnis & Usaha",
+          "type": "income",
+          "color": "#8B5CF6",
+          "icon": "Store",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "cat-afe29c84-14",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Investasi & Dividen",
+          "type": "income",
+          "color": "#F59E0B",
+          "icon": "TrendingUp",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "cat-afe29c84-15",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Bonus & Hadiah",
+          "type": "income",
+          "color": "#EC4899",
+          "icon": "Gift",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        },
+        {
+          "id": "cat-afe29c84-16",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "name": "Pemasukan Lain",
+          "type": "income",
+          "color": "#6B7280",
+          "icon": "PlusCircle",
+          "is_default": true,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        }
+      ],
+      "transactions": [],
+      "budgets": [
+        {
+          "id": "bgt-afe29c84-1",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "month": "2026-09-01",
+          "total_limit": 0,
+          "notes": "Pagu anggaran bulanan",
+          "created_at": "2026-09-19T06:56:14.685Z",
+          "updated_at": "2026-09-19T06:56:14.685Z"
+        }
+      ],
+      "budgetCategories": [],
+      "savingsGoals": [],
+      "debts": [],
+      "recurringTransactions": [],
+      "notifications": [
+        {
+          "id": "notif-afe29c84-1",
+          "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+          "title": "Selamat Datang di Keuangan!",
+          "message": "Halo Pengguna Demo, akun Anda telah berhasil didaftarkan dan siap digunakan. Catat transaksi pertama Anda sekarang.",
+          "type": "system",
+          "is_read": false,
+          "created_at": "2026-09-19T06:56:59.716Z"
+        }
+      ],
+      "settings": {
+        "user_id": "afe29c84-e60f-4a4f-8b5c-39a4a6292ab2",
+        "google_connected": false,
+        "google_sheet_id": "",
+        "google_sheet_url": "",
+        "auto_backup_enabled": false,
+        "notify_budget_warning": true,
+        "notify_recurring_due": true,
+        "updated_at": "2026-09-19T06:56:14.685Z"
+      },
+      "updated_at": "2026-09-19T06:56:59.716Z"
+    },
+    "fd3330b7-527e-4ab7-9bfc-21f6dbf59282": {
+      "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+      "profile": {
+        "id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+        "email": "miqdadgama5@gmail.com",
+        "full_name": "Miqdad Gama Alfikri",
+        "avatar_url": "",
+        "currency": "IDR",
+        "locale": "id-ID",
+        "theme": "system",
+        "created_at": "2026-09-19T07:00:20.058Z",
+        "updated_at": "2026-09-19T07:00:20.058Z"
+      },
+      "accounts": [
+        {
+          "id": "acc-fd3330b7-1",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "BCA Utama",
+          "type": "bank",
+          "balance": 217000,
+          "initial_balance": 217000,
+          "currency": "IDR",
+          "color": "#00529C",
+          "icon": "Building2",
+          "institution": "Bank Central Asia",
+          "is_active": true,
+          "created_at": "2026-09-19T07:00:20.058Z",
+          "updated_at": "2026-09-19T09:47:46.739Z",
+          "account_number": "",
+          "notes": ""
+        },
+        {
+          "id": "acc-fd3330b7-2",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Mandiri Tabungan",
+          "type": "bank",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#0F4C81",
+          "icon": "Building",
+          "institution": "Bank Mandiri",
+          "is_active": true,
+          "created_at": "2026-09-19T07:00:20.058Z",
+          "updated_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "acc-fd3330b7-3",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "GoPay",
+          "type": "ewallet",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#00AED6",
+          "icon": "Smartphone",
+          "institution": "GoTo",
+          "is_active": true,
+          "created_at": "2026-09-19T07:00:20.058Z",
+          "updated_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "acc-fd3330b7-4",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "DANA",
+          "type": "ewallet",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#118EEA",
+          "icon": "Smartphone",
+          "institution": "DANA Indonesia",
+          "is_active": true,
+          "created_at": "2026-09-19T07:00:20.058Z",
+          "updated_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "acc-fd3330b7-5",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Dompet Tunai",
+          "type": "cash",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#10B981",
+          "icon": "Wallet",
+          "institution": "Cash",
+          "is_active": true,
+          "created_at": "2026-09-19T07:00:20.058Z",
+          "updated_at": "2026-09-19T07:00:20.058Z"
+        }
+      ],
+      "categories": [
+        {
+          "id": "cat-fd3330b7-1",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Makanan & Minuman",
+          "type": "expense",
+          "color": "#EF4444",
+          "icon": "Utensils",
+          "is_default": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "cat-fd3330b7-2",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Transportasi",
+          "type": "expense",
+          "color": "#F97316",
+          "icon": "Car",
+          "is_default": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "cat-fd3330b7-3",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Belanja",
+          "type": "expense",
+          "color": "#EC4899",
+          "icon": "ShoppingBag",
+          "is_default": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "cat-fd3330b7-4",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Tagihan & Utilitas",
+          "type": "expense",
+          "color": "#F59E0B",
+          "icon": "Receipt",
+          "is_default": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "cat-fd3330b7-5",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Hiburan",
+          "type": "expense",
+          "color": "#8B5CF6",
+          "icon": "Film",
+          "is_default": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "cat-fd3330b7-6",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Kesehatan",
+          "type": "expense",
+          "color": "#10B981",
+          "icon": "HeartPulse",
+          "is_default": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "cat-fd3330b7-7",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Pendidikan",
+          "type": "expense",
+          "color": "#06B6D4",
+          "icon": "GraduationCap",
+          "is_default": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "cat-fd3330b7-8",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Keluarga",
+          "type": "expense",
+          "color": "#3B82F6",
+          "icon": "Users",
+          "is_default": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "cat-fd3330b7-9",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Langganan",
+          "type": "expense",
+          "color": "#6366F1",
+          "icon": "Sparkles",
+          "is_default": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "cat-fd3330b7-10",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Lainnya",
+          "type": "expense",
+          "color": "#6B7280",
+          "icon": "CircleEllipsis",
+          "is_default": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "cat-fd3330b7-11",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Gaji Bulanan",
+          "type": "income",
+          "color": "#10B981",
+          "icon": "Banknote",
+          "is_default": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "cat-fd3330b7-12",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Freelance & Side Project",
+          "type": "income",
+          "color": "#3B82F6",
+          "icon": "Laptop",
+          "is_default": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "cat-fd3330b7-13",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Bisnis & Usaha",
+          "type": "income",
+          "color": "#8B5CF6",
+          "icon": "Store",
+          "is_default": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "cat-fd3330b7-14",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Investasi & Dividen",
+          "type": "income",
+          "color": "#F59E0B",
+          "icon": "TrendingUp",
+          "is_default": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "cat-fd3330b7-15",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Bonus & Hadiah",
+          "type": "income",
+          "color": "#EC4899",
+          "icon": "Gift",
+          "is_default": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        },
+        {
+          "id": "cat-fd3330b7-16",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "name": "Pemasukan Lain",
+          "type": "income",
+          "color": "#6B7280",
+          "icon": "PlusCircle",
+          "is_default": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        }
+      ],
+      "transactions": [],
+      "budgets": [
+        {
+          "id": "bgt-fd3330b7-1",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "month": "2026-09-01",
+          "total_limit": 0,
+          "notes": "Pagu anggaran bulanan",
+          "created_at": "2026-09-19T06:56:14.685Z",
+          "updated_at": "2026-09-19T06:56:14.685Z"
+        }
+      ],
+      "budgetCategories": [],
+      "savingsGoals": [
+        {
+          "name": "Servis AC",
+          "target_amount": 1500000,
+          "current_amount": 1050000,
+          "color": "#8B5CF6",
+          "icon": "Target",
+          "notes": "",
+          "status": "active",
+          "id": "goal-1789811225052",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "created_at": "2026-09-19T09:47:05.052Z",
+          "updated_at": "2026-09-19T09:47:05.052Z"
+        }
+      ],
+      "debts": [],
+      "recurringTransactions": [],
+      "notifications": [
+        {
+          "id": "notif-fd3330b7-1",
+          "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+          "title": "Selamat Datang di Keuangan!",
+          "message": "Halo Miqdad Gama Alfikri, akun Anda telah berhasil didaftarkan dan siap digunakan. Catat transaksi pertama Anda sekarang.",
+          "type": "system",
+          "is_read": true,
+          "created_at": "2026-09-19T07:00:20.058Z"
+        }
+      ],
+      "settings": {
+        "user_id": "fd3330b7-527e-4ab7-9bfc-21f6dbf59282",
+        "google_connected": false,
+        "google_sheet_id": "",
+        "google_sheet_url": "",
+        "auto_backup_enabled": false,
+        "notify_budget_warning": true,
+        "notify_recurring_due": true,
+        "updated_at": "2026-09-19T06:56:14.685Z"
+      },
+      "updated_at": "2026-09-19T09:48:15.331Z"
+    },
+    "7f8fc3d6-f03d-41af-aeed-d446b47e8a49": {
+      "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+      "profile": {
+        "id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+        "email": "miqqdq@gmail.com",
+        "full_name": "zcxzxc",
+        "avatar_url": "",
+        "currency": "IDR",
+        "locale": "id-ID",
+        "theme": "system",
+        "created_at": "2026-09-19T07:05:34.506Z",
+        "updated_at": "2026-09-19T07:05:34.506Z"
+      },
+      "accounts": [
+        {
+          "id": "acc-7f8fc3d6-1",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "BCA Utama",
+          "type": "bank",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#00529C",
+          "icon": "Building2",
+          "institution": "Bank Central Asia",
+          "is_active": true,
+          "created_at": "2026-09-19T07:05:34.506Z",
+          "updated_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "acc-7f8fc3d6-2",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Mandiri Tabungan",
+          "type": "bank",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#0F4C81",
+          "icon": "Building",
+          "institution": "Bank Mandiri",
+          "is_active": true,
+          "created_at": "2026-09-19T07:05:34.506Z",
+          "updated_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "acc-7f8fc3d6-3",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "GoPay",
+          "type": "ewallet",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#00AED6",
+          "icon": "Smartphone",
+          "institution": "GoTo",
+          "is_active": true,
+          "created_at": "2026-09-19T07:05:34.506Z",
+          "updated_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "acc-7f8fc3d6-4",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "DANA",
+          "type": "ewallet",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#118EEA",
+          "icon": "Smartphone",
+          "institution": "DANA Indonesia",
+          "is_active": true,
+          "created_at": "2026-09-19T07:05:34.506Z",
+          "updated_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "acc-7f8fc3d6-5",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Dompet Tunai",
+          "type": "cash",
+          "balance": 0,
+          "initial_balance": 0,
+          "currency": "IDR",
+          "color": "#10B981",
+          "icon": "Wallet",
+          "institution": "Cash",
+          "is_active": true,
+          "created_at": "2026-09-19T07:05:34.506Z",
+          "updated_at": "2026-09-19T07:05:34.506Z"
+        }
+      ],
+      "categories": [
+        {
+          "id": "cat-7f8fc3d6-1",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Makanan & Minuman",
+          "type": "expense",
+          "color": "#EF4444",
+          "icon": "Utensils",
+          "is_default": true,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "cat-7f8fc3d6-2",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Transportasi",
+          "type": "expense",
+          "color": "#F97316",
+          "icon": "Car",
+          "is_default": true,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "cat-7f8fc3d6-3",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Belanja",
+          "type": "expense",
+          "color": "#EC4899",
+          "icon": "ShoppingBag",
+          "is_default": true,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "cat-7f8fc3d6-4",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Tagihan & Utilitas",
+          "type": "expense",
+          "color": "#F59E0B",
+          "icon": "Receipt",
+          "is_default": true,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "cat-7f8fc3d6-5",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Hiburan",
+          "type": "expense",
+          "color": "#8B5CF6",
+          "icon": "Film",
+          "is_default": true,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "cat-7f8fc3d6-6",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Kesehatan",
+          "type": "expense",
+          "color": "#10B981",
+          "icon": "HeartPulse",
+          "is_default": true,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "cat-7f8fc3d6-7",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Pendidikan",
+          "type": "expense",
+          "color": "#06B6D4",
+          "icon": "GraduationCap",
+          "is_default": true,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "cat-7f8fc3d6-8",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Keluarga",
+          "type": "expense",
+          "color": "#3B82F6",
+          "icon": "Users",
+          "is_default": true,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "cat-7f8fc3d6-9",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Langganan",
+          "type": "expense",
+          "color": "#6366F1",
+          "icon": "Sparkles",
+          "is_default": true,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "cat-7f8fc3d6-10",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Lainnya",
+          "type": "expense",
+          "color": "#6B7280",
+          "icon": "CircleEllipsis",
+          "is_default": true,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "cat-7f8fc3d6-11",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Gaji Bulanan",
+          "type": "income",
+          "color": "#10B981",
+          "icon": "Banknote",
+          "is_default": true,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "cat-7f8fc3d6-12",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Freelance & Side Project",
+          "type": "income",
+          "color": "#3B82F6",
+          "icon": "Laptop",
+          "is_default": true,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "cat-7f8fc3d6-13",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Bisnis & Usaha",
+          "type": "income",
+          "color": "#8B5CF6",
+          "icon": "Store",
+          "is_default": true,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "cat-7f8fc3d6-14",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Investasi & Dividen",
+          "type": "income",
+          "color": "#F59E0B",
+          "icon": "TrendingUp",
+          "is_default": true,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "cat-7f8fc3d6-15",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Bonus & Hadiah",
+          "type": "income",
+          "color": "#EC4899",
+          "icon": "Gift",
+          "is_default": true,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        },
+        {
+          "id": "cat-7f8fc3d6-16",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "name": "Pemasukan Lain",
+          "type": "income",
+          "color": "#6B7280",
+          "icon": "PlusCircle",
+          "is_default": true,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        }
+      ],
+      "transactions": [],
+      "budgets": [
+        {
+          "id": "bgt-7f8fc3d6-1",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "month": "2026-09-01",
+          "total_limit": 0,
+          "notes": "Pagu anggaran bulanan",
+          "created_at": "2026-09-19T07:05:08.384Z",
+          "updated_at": "2026-09-19T07:05:08.384Z"
+        }
+      ],
+      "budgetCategories": [],
+      "savingsGoals": [],
+      "debts": [],
+      "recurringTransactions": [],
+      "notifications": [
+        {
+          "id": "notif-7f8fc3d6-1",
+          "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+          "title": "Selamat Datang di Keuangan!",
+          "message": "Halo zcxzxc, akun Anda telah berhasil didaftarkan dan siap digunakan. Catat transaksi pertama Anda sekarang.",
+          "type": "system",
+          "is_read": false,
+          "created_at": "2026-09-19T07:05:34.506Z"
+        }
+      ],
+      "settings": {
+        "user_id": "7f8fc3d6-f03d-41af-aeed-d446b47e8a49",
+        "google_connected": false,
+        "google_sheet_id": "",
+        "google_sheet_url": "",
+        "auto_backup_enabled": false,
+        "notify_budget_warning": true,
+        "notify_recurring_due": true,
+        "updated_at": "2026-09-19T07:05:08.384Z"
+      },
+      "updated_at": "2026-09-19T07:05:34.506Z"
+    }
+  }
+}

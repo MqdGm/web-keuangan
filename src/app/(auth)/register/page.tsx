@@ -7,8 +7,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/components/ui/toast';
-import { createClient } from '@/lib/supabase/client';
-import { Sparkles, Lock, Mail, User } from 'lucide-react';
+import { Sparkles, Lock, Mail, User, ArrowRight } from 'lucide-react';
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -17,6 +16,7 @@ export default function RegisterPage() {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const handleRegister = async (e: React.FormEvent) => {
@@ -29,36 +29,38 @@ export default function RegisterPage() {
       error('Kata sandi terlalu pendek', 'Kata sandi minimal 6 karakter.');
       return;
     }
+    if (confirmPassword && password !== confirmPassword) {
+      error('Konfirmasi sandi salah', 'Kata sandi dan konfirmasi kata sandi tidak cocok.');
+      return;
+    }
 
     setIsLoading(true);
 
     try {
-      const supabase = createClient();
-      if (!supabase) {
-        success('Pendaftaran Berhasil', 'Akun demo berhasil dibuat! Mengalihkan ke dashboard...');
-        router.push('/');
-        return;
-      }
-
-      const { data, error: signUpError } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            full_name: fullName,
-          },
-        },
+      const res = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName: fullName.trim(),
+          email: email.trim(),
+          password,
+        }),
       });
 
-      if (signUpError) {
-        error('Pendaftaran Gagal', signUpError.message);
+      const data = await res.json();
+      if (!res.ok) {
+        error('Pendaftaran Gagal', data.error || 'Terjadi kesalahan saat mendaftar.');
         return;
       }
 
-      success('Pendaftaran Berhasil!', 'Silakan periksa email Anda untuk verifikasi atau masuk langsung.');
-      router.push('/login');
+      success(
+        'Pendaftaran Berhasil!',
+        `Selamat datang, ${data.user?.full_name}! Akun Anda telah aktif dan data tersimpan di database.`
+      );
+      router.push('/');
+      router.refresh();
     } catch (err: any) {
-      error('Kesalahan Sistem', err.message);
+      error('Kesalahan Sistem', err.message || 'Gagal terhubung ke server.');
     } finally {
       setIsLoading(false);
     }
@@ -83,7 +85,7 @@ export default function RegisterPage() {
           <CardHeader>
             <CardTitle className="text-lg font-bold">Buat Akun Baru</CardTitle>
             <CardDescription className="text-xs">
-              Satu akun untuk seluruh rekening, anggaran, dan target tabungan
+              Satu akun untuk seluruh rekening, anggaran, dan target tabungan Anda
             </CardDescription>
           </CardHeader>
 
@@ -133,20 +135,36 @@ export default function RegisterPage() {
                 </div>
               </div>
 
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-slate-500 uppercase">Ulangi Kata Sandi</label>
+                <div className="relative">
+                  <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                  <Input
+                    type="password"
+                    placeholder="Ketik ulang kata sandi"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    className="pl-10 h-11 text-sm"
+                    required
+                  />
+                </div>
+              </div>
+
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full h-11 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 text-white"
+                className="w-full h-11 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 text-white cursor-pointer"
               >
-                {isLoading ? 'Mendaftarkan...' : 'Daftar Akun'}
+                {isLoading ? 'Mendaftarkan akun...' : 'Daftar Akun Sekarang'}
               </Button>
             </form>
           </CardContent>
 
           <CardFooter className="pt-0 justify-center text-xs text-slate-500">
             <span>Sudah memiliki akun?</span>
-            <Link href="/login" className="ml-1 font-semibold text-emerald-600 hover:underline">
-              Masuk di sini
+            <Link href="/login" className="ml-1 font-semibold text-emerald-600 hover:underline inline-flex items-center gap-1">
+              <span>Masuk di sini</span>
+              <ArrowRight className="w-3 h-3" />
             </Link>
           </CardFooter>
         </Card>

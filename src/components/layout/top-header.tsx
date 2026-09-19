@@ -10,6 +10,8 @@ import {
   Plus,
   ChevronDown,
   Sparkles,
+  User,
+  LogOut,
 } from 'lucide-react';
 import { useFinance } from '@/lib/storage/finance-store';
 import { DateRangePreset } from '@/types/finance';
@@ -32,8 +34,9 @@ const PRESET_LABELS: Record<DateRangePreset, string> = {
 
 export function TopHeader({ onOpenQuickAdd }: TopHeaderProps) {
   const pathname = usePathname();
-  const { datePreset, setDatePreset, unreadNotificationCount } = useFinance();
+  const { datePreset, setDatePreset, unreadNotificationCount, currentUser, logout, isSaving } = useFinance();
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
+  const [userMenuOpen, setUserMenuOpen] = React.useState(false);
 
   // Global keyboard shortcut Shift + A for quick add
   useEffect(() => {
@@ -171,11 +174,58 @@ export function TopHeader({ onOpenQuickAdd }: TopHeaderProps) {
         {/* Desktop Quick Add Button */}
         <button
           onClick={onOpenQuickAdd}
-          className="hidden md:flex h-9 px-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold items-center gap-1.5 shadow-sm transition-all active:scale-[0.98]"
+          className="hidden md:flex h-9 px-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold items-center gap-1.5 shadow-sm transition-all active:scale-[0.98] cursor-pointer"
         >
           <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
           <span>+ Transaksi</span>
         </button>
+
+        {/* User Profile & Logout Menu */}
+        <div className="relative">
+          <button
+            onClick={() => setUserMenuOpen(!userMenuOpen)}
+            className="h-9 w-9 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800/60 flex items-center justify-center transition-colors cursor-pointer"
+            title="Menu Akun"
+          >
+            <User className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+          </button>
+
+          {userMenuOpen && (
+            <>
+              <div
+                className="fixed inset-0 z-20"
+                onClick={() => setUserMenuOpen(false)}
+              />
+              <div className="absolute right-0 mt-1 w-52 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl py-2 z-30 animate-in fade-in zoom-in-95 text-xs">
+                <div className="px-3 py-1.5 border-b border-slate-100 dark:border-slate-800 mb-1">
+                  <p className="font-bold text-slate-800 dark:text-slate-100 truncate">
+                    {currentUser?.full_name || 'Pengguna'}
+                  </p>
+                  <p className="text-[10px] text-slate-400 truncate">
+                    {currentUser?.email || ''}
+                  </p>
+                </div>
+                <Link
+                  href="/settings"
+                  onClick={() => setUserMenuOpen(false)}
+                  className="w-full text-left px-3 py-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center gap-2 text-slate-700 dark:text-slate-300"
+                >
+                  <span>Pengaturan & Akun</span>
+                </Link>
+                <button
+                  onClick={() => {
+                    setUserMenuOpen(false);
+                    logout();
+                  }}
+                  className="w-full text-left px-3 py-1.5 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors flex items-center gap-2 text-rose-600 font-semibold cursor-pointer"
+                >
+                  <LogOut className="w-3.5 h-3.5" />
+                  <span>Keluar Akun</span>
+                </button>
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </header>
   );

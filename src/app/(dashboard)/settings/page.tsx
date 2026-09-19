@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -47,6 +47,11 @@ export default function SettingsPage() {
   } = useFinance();
   const { theme, setTheme } = useTheme();
   const { success, error, info } = useToast();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -109,9 +114,9 @@ export default function SettingsPage() {
   };
 
   const handleResetDemo = () => {
-    if (confirm('Atur ulang seluruh saldo ke Rp 0 dan hapus transaksi demo agar siap dipakai sehari-hari?')) {
+    if (confirm('Atur ulang seluruh saldo ke Rp 0 dan kosongkan transaksi agar siap dipakai dari awal?')) {
       resetToDemoData();
-      success('Saldo Direset ke Rp 0', 'Seluruh data siap digunakan untuk pencatatan keuangan nyata Anda.');
+      success('Saldo Direset ke Rp 0', 'Seluruh akun telah disetel ulang dan siap digunakan.');
     }
   };
 
@@ -261,13 +266,13 @@ export default function SettingsPage() {
               type="button"
               onClick={() => setTheme('light')}
               className={cn(
-                'p-4 rounded-xl border flex flex-col items-center gap-2 transition-all',
-                theme === 'light'
-                  ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 font-bold shadow-sm'
-                  : 'border-slate-200 dark:border-slate-800 text-slate-600 hover:bg-slate-50'
+                'p-4 rounded-xl border flex flex-col items-center gap-2 transition-all cursor-pointer',
+                mounted && theme === 'light'
+                  ? 'border-emerald-500 bg-emerald-50/70 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 font-bold shadow-sm'
+                  : 'border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60'
               )}
             >
-              <Sun className="w-5 h-5" />
+              <Sun className="w-5 h-5 text-amber-500" />
               <span className="text-xs">Terang</span>
             </button>
 
@@ -275,13 +280,13 @@ export default function SettingsPage() {
               type="button"
               onClick={() => setTheme('dark')}
               className={cn(
-                'p-4 rounded-xl border flex flex-col items-center gap-2 transition-all',
-                theme === 'dark'
-                  ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 font-bold shadow-sm'
-                  : 'border-slate-200 dark:border-slate-800 text-slate-600 hover:bg-slate-50'
+                'p-4 rounded-xl border flex flex-col items-center gap-2 transition-all cursor-pointer',
+                mounted && theme === 'dark'
+                  ? 'border-emerald-500 bg-emerald-50/70 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 font-bold shadow-sm'
+                  : 'border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60'
               )}
             >
-              <Moon className="w-5 h-5" />
+              <Moon className="w-5 h-5 text-indigo-400" />
               <span className="text-xs">Gelap</span>
             </button>
 
@@ -289,13 +294,13 @@ export default function SettingsPage() {
               type="button"
               onClick={() => setTheme('system')}
               className={cn(
-                'p-4 rounded-xl border flex flex-col items-center gap-2 transition-all',
-                theme === 'system'
-                  ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 font-bold shadow-sm'
-                  : 'border-slate-200 dark:border-slate-800 text-slate-600 hover:bg-slate-50'
+                'p-4 rounded-xl border flex flex-col items-center gap-2 transition-all cursor-pointer',
+                mounted && theme === 'system'
+                  ? 'border-emerald-500 bg-emerald-50/70 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 font-bold shadow-sm'
+                  : 'border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60'
               )}
             >
-              <Laptop className="w-5 h-5" />
+              <Laptop className="w-5 h-5 text-teal-500" />
               <span className="text-xs">Sistem</span>
             </button>
           </div>
@@ -310,7 +315,7 @@ export default function SettingsPage() {
             Manajemen & Pencadangan Data
           </CardTitle>
           <CardDescription className="text-xs">
-            Ekspor seluruh catatan keuangan ke berkas JSON atau CSV, pulihkan data, atau kelola data demo
+            Ekspor seluruh catatan keuangan ke berkas JSON atau CSV, pulihkan data, atau kelola saldo akun
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

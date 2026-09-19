@@ -20,6 +20,8 @@ import {
   Sun,
   Moon,
   Laptop,
+  LogOut,
+  User,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useFinance } from '@/lib/storage/finance-store';
@@ -32,8 +34,14 @@ interface DesktopSidebarProps {
 
 export function DesktopSidebar({ onOpenQuickAdd }: DesktopSidebarProps) {
   const pathname = usePathname();
-  const { totalNetWorth, unreadNotificationCount, isDemoMode } = useFinance();
-  const { theme, setTheme } = useTheme();
+  const { totalNetWorth, unreadNotificationCount, currentUser, logout, isSaving } = useFinance();
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
 
   const navItems = [
     { label: 'Ringkasan', href: '/', icon: LayoutDashboard },
@@ -71,12 +79,8 @@ export function DesktopSidebar({ onOpenQuickAdd }: DesktopSidebarProps) {
             </p>
           </div>
         </Link>
-        {isDemoMode && (
-          <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
-            Lokal
-          </span>
-        )}
       </div>
+
 
       {/* Quick Add Button */}
       <div className="p-4">
@@ -130,7 +134,7 @@ export function DesktopSidebar({ onOpenQuickAdd }: DesktopSidebarProps) {
       </nav>
 
       {/* Bottom Profile & Net Worth Summary */}
-      <div className="p-4 border-t border-slate-100 dark:border-slate-800/80 space-y-3">
+      <div className="p-4 border-t border-slate-100 dark:border-slate-800/80 space-y-2">
         <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-800/60 flex items-center justify-between">
           <div>
             <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400">
@@ -142,13 +146,39 @@ export function DesktopSidebar({ onOpenQuickAdd }: DesktopSidebarProps) {
           </div>
           <div className="flex items-center gap-1">
             <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 transition-colors"
+              onClick={() => setTheme((mounted ? resolvedTheme : theme) === 'dark' ? 'light' : 'dark')}
+              className="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 transition-colors cursor-pointer"
               title="Ganti Tema"
             >
-              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              {mounted && (resolvedTheme === 'dark' ? <Sun className="w-4 h-4 text-amber-500" /> : <Moon className="w-4 h-4 text-indigo-400" />)}
+              {!mounted && <Sun className="w-4 h-4" />}
             </button>
           </div>
+        </div>
+
+        {/* Logged in User Bar */}
+        <div className="px-3 py-2 rounded-xl bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/40 dark:border-slate-800/40 flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 min-w-0">
+            <div className="w-7 h-7 rounded-lg bg-emerald-600/10 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400 flex items-center justify-center shrink-0">
+              <User className="w-4 h-4" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate">
+                {currentUser?.full_name || 'Pengguna'}
+              </p>
+              <p className="text-[10px] text-slate-400 truncate">
+                {currentUser?.email || 'Akun Lokal'}
+              </p>
+            </div>
+          </div>
+
+          <button
+            onClick={logout}
+            className="p-1.5 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/40 text-slate-400 hover:text-rose-600 transition-colors cursor-pointer shrink-0"
+            title="Keluar / Logout"
+          >
+            <LogOut className="w-3.5 h-3.5" />
+          </button>
         </div>
       </div>
     </aside>
